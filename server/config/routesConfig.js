@@ -1,8 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const routes = require('../modules/index');
 
-router.get('/', (req, res) => {
-  res.send({ response: 'Alive' }).status(200);
-});
+const routesConfig = (app) => {
+  app.use('/api/v1/auth', routes.auth.AuthRoutes);
+  app.use('/api/v1/users', routes.users.UserRoutes);
+};
 
-module.exports = router;
+module.exports = routesConfig;
