@@ -11,14 +11,14 @@ const app = express();
 // Database Configuration
 dbConfig();
 
+// Middleware Configuration
+middlewareConfig(app);
+
 // Routes API Configuration
 routesConfig(app);
 
 // Docs Configuration
 docsConfig(app);
-
-// Middleware Configuration
-middlewareConfig(app);
 
 const server = http.createServer(app);
 // const io = socketIO(server);
