@@ -25,6 +25,8 @@ body{
   --color-primary-dark: #3a133f;
   --color-secondary: #3a90bb;
   --color-grey-light: #f5f5f5;
+  --color-grey-darker: #ebeaeb;
+  --color-grey-dark: #d1d1d1;
 }
 
 img{

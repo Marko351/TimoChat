@@ -6,7 +6,7 @@ export const Footer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #ebeaeb;
+  background: var(--color-grey-darker);
   color: #000;
   font-size: 1.2rem;
 `;

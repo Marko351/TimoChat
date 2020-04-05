@@ -1,19 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div((props) => {
-  return {
-    background: `var(--color-grey-light)`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: '0',
-    padding: 0,
-    height: '86.7vh',
-  };
-});
-
 export const Wrapper = styled.div`
   width: 70%;
   display: flex;
@@ -58,19 +44,6 @@ export const TextWrapper = styled.div`
   }
 `;
 
-export const Heading3 = styled.h3`
-  font-size: 3.2rem;
-  padding: 2rem 2rem 2rem 0;
-  font-weight: 100;
-  line-height: 4rem;
-
-  @media (max-width: 48rem) {
-    line-height: 3rem;
-    font-size: 2.2rem;
-    padding: 0rem;
-  }
-`;
-
 export const Description = styled.p`
   font-size: 2rem;
   padding: 2rem 2re 2rem 0;
@@ -101,7 +74,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 55%;
+  width: 70%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
   border-radius: 0.2rem;
   position: absolute;

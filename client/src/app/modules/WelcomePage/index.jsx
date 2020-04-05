@@ -6,19 +6,29 @@ import Timo1 from '../../assets/Timo1.jpg';
 import Timo2 from '../../assets/Timo2.jpg';
 
 import {
-  Container,
   Wrapper,
   Heading1,
-  Heading3,
   TextWrapper,
   ImageWrapper,
   Description,
   ButtonsWrapper,
   Image,
 } from './WelcomePage.styled';
+import {
+  Container,
+  Heading3,
+} from '../../common/StyledComponents/CommonStyledComponents';
 import Button from '../../common/Button/Button';
 
-const index = (props) => {
+const index = ({ props }) => {
+  const onButtonClick = (action) => {
+    if (action === 'signin') {
+      props.history.push('/login');
+    } else {
+      props.history.push('/register');
+    }
+  };
+
   return (
     <Fragment>
       <Container backgroundImg={TimoBackground}>
@@ -31,12 +41,18 @@ const index = (props) => {
               teams will stay productive no matter where you’re working from.
             </Description>
             <ButtonsWrapper>
-              <Button size="big" text="Sign in" color="primary" />
+              <Button
+                size="big"
+                text="Sign in"
+                color="primary"
+                onClick={() => onButtonClick('signin')}
+              />
               <Button
                 size="big"
                 text="Sign up"
                 color="secondary"
                 customStyle={{ marginLeft: '2rem' }}
+                onClick={() => onButtonClick('signup')}
               />
             </ButtonsWrapper>
           </TextWrapper>

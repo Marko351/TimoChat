@@ -13,9 +13,7 @@ import {
 } from './app/modules/Register/redux/actions';
 
 import GlobalStyle from './GlobalStyle.styled';
-import WelcomePage from './app/modules/WelcomePage/index';
-import Navbar from './app/modules/NavBar';
-import Footer from './app/modules/Footer';
+import BasicNavigation from './app/navigation/basicNavigation';
 
 axios.defaults.baseURL = 'http://localhost:5500/api/v1';
 
@@ -40,11 +38,10 @@ function App() {
   return (
     <Provider store={store}>
       <GlobalStyle />
-      <Navbar />
       <Switch>
-        <Route path="/" render={(props) => <WelcomePage props={props} />} />
+        {/* <Route path="/www" render={(props) => <WelcomePage props={props} />} /> */}
+        <Route path="/" render={(props) => <BasicNavigation props={props} />} />
       </Switch>
-      <Footer />
     </Provider>
   );
 }

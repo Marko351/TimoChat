@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import TimoLogo from '../../assets/TimoLogo.png';
@@ -19,7 +20,9 @@ const index = (props) => {
       <NavWrapper>
         <LogoWrapper>
           <LogoImg src={TimoLogo} />
-          <LogoText>TimoChat</LogoText>
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <LogoText>TimoChat</LogoText>
+          </Link>
         </LogoWrapper>
         <NavItemWrapper>
           <CustomNavLink to="/login" text="Login" />

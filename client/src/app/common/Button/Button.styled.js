@@ -1,8 +1,21 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  font-size: ${({ size }) => (size === 'big' ? '1.4rem' : '')};
-  padding: ${({ size }) => (size === 'big' ? '1.7rem 4.6rem' : '')};
+  ${({ size }) => {
+    if (size === 'big') {
+      return {
+        fontSize: '1.4rem',
+        padding: '1.7rem 4.6rem',
+        letterSpacing: '.2rem',
+      };
+    } else {
+      return {
+        fontSize: '1rem',
+        padding: '1.2rem 2.8rem',
+        letterSpacing: '.1rem',
+      };
+    }
+  }}
   background: ${({ color }) =>
     color === 'primary' ? 'var(--color-primary)' : '#fff'};
   color: ${({ color }) =>
@@ -13,7 +26,6 @@ export const Button = styled.button`
   cursor: pointer;
   box-shadow: none;
   font-weight: 700;
-  letter-spacing: 0.2rem;
   outline: none;
   transition: all 0.3s;
 
@@ -22,6 +34,10 @@ export const Button = styled.button`
       color === 'primary'
         ? 'var(--color-primary-dark)'
         : 'var(--color-grey-light)'};
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 
   ${({ customStyle }) => {
