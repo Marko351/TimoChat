@@ -3,7 +3,7 @@ const http = require('http');
 const dbConfig = require('./config/dbConfig');
 const headersConfig = require('./config/headersConfig');
 const routesConfig = require('./config/routesConfig');
-const docsConfig = require('./config/docsConfig');
+const docsConfig = require('../swaggerDoc');
 const middlewareConfig = require('./config/middlewareConfig');
 // const socketIO = require('socket.io');
 
