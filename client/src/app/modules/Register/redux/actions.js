@@ -2,24 +2,62 @@ import axios from 'axios';
 import setAuthToken from '../../../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
-import { SET_CURRENT_USER, GET_ERRORS } from './types';
+import {
+  SET_CURRENT_USER
+} from './types';
+import {
+  GET_ERRORS,
+  CLEAN_UP_ERRORS
+} from '../../../reduxConfig/errors/types';
 
-export const loginUser = (userData, history) => (dispatch) => {
-  return axios
-    .post('/auth/login-user', userData)
-    .then((res) => {
-      const { token } = res.data;
-      localStorage.setItem('timoToken', token);
-      setAuthToken(token);
-      const decoded = jwt_decode(token);
-      dispatch(setCurrentUser(decoded));
-    })
-    .catch((err) => {
+export const registerUser = (userData) => async dispatch => {
+  try {
+    const response = await axios.post('/auth/register', userData);
+    const {
+      token
+    } = response.data;
+    localStorage.setItem('timoToken', token);
+    setAuthToken(token);
+    const decoded = jwt_decode(token);
+    dispatch(setCurrentUser(decoded));
+    return {
+      error: false
+    }
+  } catch (error) {
+    if (error.response.status === 422) {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data,
-      });
+        payload: error.response.data
+      })
+    }
+    return {
+      error: true
+    }
+  }
+}
+
+export const loginUser = (userData) => async (dispatch) => {
+  try {
+    const response = await axios.post('/auth/login', userData);
+    const {
+      token
+    } = response.data;
+    localStorage.setItem('timoToken', token);
+    setAuthToken(token);
+    const decoded = jwt_decode(token);
+    dispatch(setCurrentUser(decoded));
+    return {
+      error: false
+    }
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error.response.data,
     });
+    return {
+      error: true
+    }
+  }
 };
 
 // Set loged in user

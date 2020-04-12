@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 const dbConfig = require('./config/dbConfig');
+const headersConfig = require('./config/headersConfig');
 const routesConfig = require('./config/routesConfig');
 const docsConfig = require('./config/docsConfig');
 const middlewareConfig = require('./config/middlewareConfig');
@@ -13,6 +14,9 @@ dbConfig();
 
 // Middleware Configuration
 middlewareConfig(app);
+
+//Headers Configuration
+headersConfig(app)
 
 // Routes API Configuration
 routesConfig(app);

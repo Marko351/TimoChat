@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import { Input, Label, InputContainer } from './Input.styled';
+import { Input, Label, InputContainer, Small } from './Input.styled';
 
-const index = ({ label, type, name, onChange, placeholder }) => {
+const index = ({ label, type, name, onChange, placeholder, errorMessage }) => {
   return (
     <InputContainer>
       {label && <Label>{label}</Label>}
@@ -12,7 +12,9 @@ const index = ({ label, type, name, onChange, placeholder }) => {
         name={name}
         onChange={onChange}
         placeholder={placeholder}
+        errorMessage={errorMessage}
       />
+      {errorMessage && <Small>{errorMessage}</Small>}
     </InputContainer>
   );
 };

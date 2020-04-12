@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const Button = styled.button `
   ${({ size }) => {
     if (size === 'big') {
       return {
@@ -47,4 +47,16 @@ export const Button = styled.button`
       };
     }
   }}
+
+  @media (max-width: 48rem) {
+    ${({ size }) => {
+      if (size === 'big') {
+        return {
+          fontSize: '1.1rem',
+          padding: '1.4rem 3.6rem',
+          letterSpacing: '.2rem',
+        };
+      }
+    }}
+  }
 `;

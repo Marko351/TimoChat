@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div `
   width: 70%;
   display: flex;
   justify-content: center;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Heading1 = styled.h1`
+export const Heading1 = styled.h1 `
   margin-top: 3rem;
   font-size: 4.2rem;
   padding: 3rem;
@@ -28,7 +28,7 @@ export const Heading1 = styled.h1`
   }
 `;
 
-export const TextWrapper = styled.div`
+export const TextWrapper = styled.div `
   margin-top: 3rem;
   width: 50%;
   display: flex;
@@ -39,12 +39,12 @@ export const TextWrapper = styled.div`
     margin-top: 0rem;
     width: 100%;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     padding: 2rem;
   }
 `;
 
-export const Description = styled.p`
+export const Description = styled.p `
   font-size: 2rem;
   padding: 2rem 2re 2rem 0;
   font-weight: 100;
@@ -54,26 +54,35 @@ export const Description = styled.p`
     margin-top: 2rem;
     font-size: 1.6rem;
     padding: 0rem;
+    text-align: center;
   }
 `;
 
-export const ButtonsWrapper = styled.div`
+export const ButtonsWrapper = styled.div `
   justify-self: center;
   display: flex;
   justify-content: left;
   width: 100%;
   margin-top: 5rem;
+  @media (max-width: 48rem) {
+    justify-content: center;
+  }
 `;
 
-export const ImageWrapper = styled.div`
+export const ImageWrapper = styled.div `
   margin-top: 3rem;
   width: 50%;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+
+  @media (max-width: 48rem){
+    width: 100vw;
+    padding: 2rem;
+  }
 `;
 
-export const Image = styled.img`
+export const Image = styled.img `
   width: 70%;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
   border-radius: 0.2rem;
@@ -95,6 +104,22 @@ export const Image = styled.img`
       };
     }
   }}
+
+  @media (max-width: 48rem) {
+    ${({ photo }) => {
+      if (photo === 'p1') {
+        return {
+          position: 'static',
+          width: '48%'
+        };
+      } else if (photo === 'p2') {
+        return {
+          position: 'static',
+          width: '48%'
+        };
+      }
+    }}
+  }
 
   &:hover {
     outline: 0.2rem solid var(--color-primary);
